@@ -1,0 +1,2 @@
+CanOpenNode based on commit 1191979f5764e23d9994b17573a9fc675f934181
+https://github.com/CANopenNode/CANopenNode/tree/1191979f5764e23d9994b17573a9fc675f934181
