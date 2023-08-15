@@ -49,12 +49,13 @@ CC ?= gcc
 OPT =
 OPT += -g
 #OPT += -O2
-OPT += -DCO_SINGLE_THREAD
+#OPT += -DCO_SINGLE_THREAD
 #OPT += -DCO_CONFIG_DEBUG=0xFFFF
 #OPT += -Wextra -Wshadow -pedantic -fanalyzer
 #OPT += -DCO_USE_GLOBALS
 #OPT += -DCO_MULTIPLE_OD
-CFLAGS = -Wall $(OPT) $(INCLUDE_DIRS)
+CFLAGS = -Wall $(OPT)
+CUSTOM_FLAGS = -DCO_SINGLE_THREAD $(INCLUDE_DIRS)
 LDFLAGS =
 LDFLAGS += -g
 #LDFLAGS += -pthread
@@ -73,7 +74,7 @@ install:
 	cp $(LINK_TARGET) /usr/bin/$(LINK_TARGET)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(CUSTOM_FLAGS) -c $< -o $@
 
 $(LINK_TARGET): $(OBJS)
 	$(CC) $(LDFLAGS) $^ -o $@
